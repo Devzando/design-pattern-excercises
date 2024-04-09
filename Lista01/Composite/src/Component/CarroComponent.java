@@ -1,6 +1,6 @@
 package Component;
 
-public abstract class Carro {
+public abstract class CarroComponent {
     public String nome;
     public double peso;
 
@@ -13,4 +13,6 @@ public abstract class Carro {
     }
 
     public abstract Double calcularPeso();
+    public abstract void adicionar(CarroComponent peca);
+    public abstract void print(CarroComponent peca, Double pesoParcial);
 }
