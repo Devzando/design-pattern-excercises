@@ -1,7 +1,7 @@
 package Component;
 
 public abstract class Cake {
-    private final int CAKE_COST = 10;
+    public int CAKE_COST = 0;
 
     public int getCost() {
         return CAKE_COST;
