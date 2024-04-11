@@ -16,7 +16,7 @@ public class PhoneModel implements ISubject {
 
     public void addDigit(int newDigit) {
         digits.add(newDigit);
-        this.notifyObservers();
+        notifyObservers(newDigit);
     }
 
     public List<Integer> getDigits() {
@@ -29,9 +29,9 @@ public class PhoneModel implements ISubject {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObservers(int newDigit) {
         for (IObserver observer : observers) {
-            observer.update(digits);
+            observer.update(newDigit);
         }
     }
 }

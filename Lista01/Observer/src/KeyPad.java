@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import Subject.CroncretSubject.PhoneModel;
+
 /**
  * Mimic the data input ability of a physical phone's keypad;
  * however, here we're just sending it fake digits.
@@ -16,7 +18,6 @@ public class KeyPad {
         Random rnd = new Random();
         for (int i = 0; i < numKeyPresses; i++) {
             int newDigit = rnd.nextInt(MAX_DIGIT);
-            System.out.println("\nPressing: " + newDigit);
             model.addDigit(newDigit);
         }
     }
