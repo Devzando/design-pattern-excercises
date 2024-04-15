@@ -1,8 +1,8 @@
-import Lista01.Factory.Creator.LocalizacaoFactoryCreator;
-import Lista01.Factory.Creator.ConcretCreator.Amazonia;
-import Lista01.Factory.Creator.ConcretCreator.RioDeJaneiro;
-import Lista01.Factory.Creator.ConcretCreator.Sertao;
-import Lista01.Factory.Product.Inimigo;
+import Creator.LocalizacaoFactoryCreator;
+import Creator.ConcretCreator.Amazonia;
+import Creator.ConcretCreator.RioDeJaneiro;
+import Creator.ConcretCreator.Sertao;
+import Product.Inimigo;
 
 public class App {
     public static void main(String[] args) throws Exception {

@@ -1,4 +1,4 @@
-package Lista01.Factory.Product;
+package Product;
 
 public abstract class Inimigo {
     public String nome;

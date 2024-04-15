@@ -1,6 +1,6 @@
-package Lista01.Factory.Creator;
+package Creator;
 
-import Lista01.Factory.Product.Inimigo;
+import Product.Inimigo;
 
 public abstract class LocalizacaoFactoryCreator {
     public abstract Inimigo criarInimigo();

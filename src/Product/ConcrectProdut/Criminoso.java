@@ -1,6 +1,6 @@
-package Lista01.Factory.Product.ConcrectProdut;
+package Product.ConcrectProdut;
 
-import Lista01.Factory.Product.Inimigo;
+import Product.Inimigo;
 
 public class Criminoso extends Inimigo {
 
