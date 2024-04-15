@@ -1,13 +1,14 @@
-package Context;
+
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import Strategy.IStrategyFilters;
+
 
 public class WebSearchModel {
     private final File sourceFile;
@@ -23,6 +24,12 @@ public class WebSearchModel {
     }
 
     public void pretendToSearch() {
+        if (!Files.exists(sourceFile.toPath())) {
+            System.err.println("Arquivo não encontrado: " + sourceFile.toPath());
+            return;
+        }
+
+
         try (BufferedReader br = new BufferedReader(new FileReader(sourceFile))) {
             while ( true) {
                 String line = br.readLine();

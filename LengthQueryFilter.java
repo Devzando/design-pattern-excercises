@@ -1,6 +1,4 @@
-package Strategy.ConcreteStrategy;
 
-import Strategy.IStrategyFilters;
 
 public class LengthQueryFilter implements IStrategyFilters {
     

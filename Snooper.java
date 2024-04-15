@@ -1,5 +1,4 @@
-import Context.WebSearchModel;
-import Strategy.ConcreteStrategy.FriendQueryFilter;
+
 
 public class Snooper {
     private final WebSearchModel model;
