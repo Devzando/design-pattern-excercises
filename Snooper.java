@@ -18,6 +18,6 @@ public class Snooper {
             public void onQuery(String query) {
                 System.out.println("So long.... " + query);
             }
-        }, new FriendQueryFilter());
+        }, new LengthQueryFilter());
     }
 }
