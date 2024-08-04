@@ -1,40 +1,49 @@
-import ConcretCommand.ICommand;
-import ConcretCommand.MacroCommand;
-import ConcretCommand.GarageDoor.GarageDoor;
-import ConcretCommand.GarageDoor.GarageDoorUpCommand;
-import ConcretCommand.Light.Light;
-import ConcretCommand.Light.LightOnCommand;
-import ConcretCommand.Sound.Sound;
-import ConcretCommand.Sound.SoundOnCommand;
-import ConcretCommand.Tv.Tv;
-import ConcretCommand.Tv.TvOnCommand;
-
 public class App {
     public static void main(String[] args) throws Exception {
-        Sound sound = new Sound();
-        Light light = new Light();
-        GarageDoor garageDoor = new GarageDoor();
-        Tv tv = new Tv();
+        PPay pPay = new PPayImpl();
+        pPay.setCustCardNo("233444");
+        pPay.setCardOwnerName("Jane Doe");
+        pPay.setCardExpMonthDate("12/2022");
+        pPay.setCVVNo(123);
+        pPay.setTotalAmount(100.0);
 
-        SimpleRemoteControll remote = new SimpleRemoteControll();
-        LightOnCommand lightOn = new LightOnCommand(light);
-        GarageDoorUpCommand garageDoorUp = new GarageDoorUpCommand(garageDoor);
-        SoundOnCommand soundOn = new SoundOnCommand(sound);
-        TvOnCommand tvOn = new TvOnCommand(tv);
+        MPay mPay = new MpayImpl();
+        mPay.setCreditCardNo("1234567890123456");
+        mPay.setCustomerName("John Doe");
+        mPay.setCardExpMonth("12");
+        mPay.setCardExpYear("2022");
+        mPay.setCardCVVNo((short) 123);
+        mPay.setAmount(100.0);
 
-        ICommand[] commands = {lightOn, garageDoorUp, soundOn, tvOn};
-        MacroCommand macro = new MacroCommand(commands);
+        System.out.println("=================================");
+        System.out.println("Mercado Pago Details:");
+        System.out.println("=================================");
+        System.out.println(mPay.getCreditCardNo());
+        System.out.println(mPay.getCustomerName());
+        System.out.println(mPay.getCardExpMonth());
+        System.out.println(mPay.getCardExpYear());
+        System.out.println(mPay.getCardCVVNo());
+        System.out.println(mPay.getAmount());
+        
+        
+        PPay pPayAdapter = new MPayAdapter(mPay);
 
-        System.out.println("================================");
-        System.out.println("Executing commands");
-        System.out.println("================================");
-        remote.setCommand(macro);
-        remote.buttonWasPressed();
+        System.out.println("=================================");
+        System.out.println("PayPal Details:");
+        System.out.println("=================================");
+        testPPay(pPay);
+        
+        System.out.println("=================================");
+        System.out.println("PayPalAdapter Details:");
+        System.out.println("=================================");
+        testPPay(pPayAdapter);
+    }
 
-        System.out.println("================================");
-        System.out.println("Loading commands from file");
-        System.out.println("================================");
-        remote.load();
-       
+    public static void testPPay(PPay pp){
+        System.out.println(pp.getCardOwnerName());
+        System.out.println(pp.getCustCardNo());
+        System.out.println(pp.getCardExpMonthDate());
+        System.out.println(pp.getCVVNo());
+        System.out.println(pp.getTotalAmount());
     }
 }
