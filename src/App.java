@@ -1,7 +1,14 @@
 public class App {
     public static void main(String[] args) {
-        Produto produto = new Produto(1, "tv4");
-        PedidoFacade pedidoFacade = new PedidoFacade();
-        pedidoFacade.processarPedido(produto);
+        ProcessadorTexto processadorMaiuscula = new TudoMaiuscula();
+        ProcessadorTexto processadorMinuscula = new TudoMinuscula();
+
+        String textoOriginal = "ExEmPlO de TeXtO";
+        
+        String textoMaiusculo = processadorMaiuscula.processarTexto(textoOriginal);
+        System.out.println("Texto em Maiúsculas: " + textoMaiusculo);
+
+        String textoMinusculo = processadorMinuscula.processarTexto(textoOriginal);
+        System.out.println("Texto em Minúsculas: " + textoMinusculo);
     }
 }
