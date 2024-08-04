@@ -1,0 +1,4 @@
+LightOnCommand
+GarageDoorUpCommand
+SoundOnCommand
+TvOnCommand
